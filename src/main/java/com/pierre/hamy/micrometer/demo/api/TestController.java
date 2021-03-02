@@ -12,7 +12,7 @@ public class TestController {
     @RequestMapping("/")
     @Timed(extraTags = { "region", "us-east-1" })
     // refer to http://localhost:8080/actuator/metrics/http.server.requests?tag=uri%3A/&tag=region%3Aus-east-1
-    public String getResult() {
+    public String getResultMetricsAvailableOnActuator() {
         return "Hello World";
     }
 }
