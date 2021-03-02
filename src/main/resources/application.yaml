@@ -1,7 +1,25 @@
+#Tips: For beautifull json preview install chrome plugin :https://chrome.google.com/webstore/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa/related?hl=fr
+
+########################
+#Ref: https://docs.spring.io/spring-boot/docs/2.1.9.RELEASE/reference/html/production-ready-metrics.html#production-ready-metrics-spring-mvc
+#     https://docs.spring.io/spring-boot/docs/current/actuator-api/htmlsingle/#metrics-retrieving-metric
+#######################
+
+#Get all 200 http request infos:
+#http://localhost:8080/actuator/metrics/http.server.requests?tag=status%3A200
+
+#Get all 200 http only on /actuator/info
+#http://localhost:8080/actuator/metrics/http.server.requests?tag=status%3A200&tag=uri%3A/actuator/info
+
+#please see http://localhost:8080/actuator/info on local profile
 info:
   test1: "ceci est un test"
   test2:
     test3: "ceci est un autre test"
+
+#please see http://localhost:8080/actuator/heath on local profile
+#please see http://localhost:8080/actuator/info on local profile
+#please see http://localhost:8080/actuator/metrics on local profile
 
 management:
   endpoints:
@@ -9,3 +27,10 @@ management:
     web:
       exposure:
         include: health, info, metrics
+
+#https://docs.spring.io/spring-boot/docs/2.0.0.M4/reference/html/production-ready-metrics.html#production-ready-metrics-spring-mvc
+#please see: http://localhost:8080/actuator/metrics/http.server.requests on local profile
+metrics:
+  web:
+    server:
+      auto-time-requests: true
